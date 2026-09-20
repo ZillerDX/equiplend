@@ -1,41 +1,45 @@
 # EquipLend — Internal Device & IT Asset Checkout System
-### ระบบเบิก-ยืมอุปกรณ์ไอทีส่วนกลางในสำนักงาน (Zero-Training UX)
 
 <div align="center">
 
 ![EquipLend Logo](docs/logo.png)
 
+### 🚀 Live Interactive Showcase: [https://equiplend.vercel.app/](https://equiplend.vercel.app/)
+
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-equiplend.vercel.app-6366F1?style=for-the-badge&logo=vercel&logoColor=white)](https://equiplend.vercel.app/)
-[![Backend API](https://img.shields.io/badge/API%20Engine-Railway%20Cloud-0B0D0E?style=for-the-badge&logo=railway&logoColor=white)](https://railway.com/)
+[![API Backend](https://img.shields.io/badge/API%20Backend-Railway%20Cloud-0B0D0E?style=for-the-badge&logo=railway&logoColor=white)](https://railway.com/)
 [![.NET 10 LTS](https://img.shields.io/badge/.NET-10.0%20LTS%20Minimal%20APIs-512BD4?style=for-the-badge&logo=dotnet&logoColor=white)](https://dotnet.microsoft.com/)
 [![React 19](https://img.shields.io/badge/React-19.0%20Vite-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
-[![Tailwind CSS v4](https://img.shields.io/badge/Tailwind-v4.0%20Design%20Tokens-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
-[![SQLite EF Core](https://img.shields.io/badge/Database-SQLite%20EF%20Core%2010-003B57?style=for-the-badge&logo=sqlite&logoColor=white)](https://www.sqlite.org/)
+[![Tailwind CSS v4](https://img.shields.io/badge/Tailwind-v4.0%20Tokens-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
 
 **[English](#english) • [ภาษาไทย](#ภาษาไทย)**
 
 </div>
 
+> [!NOTE]
+> **Showcase & Prototype Disclaimer**: This project is currently deployed as an interactive functional demonstration. Production rollout includes an enterprise authentication suite (OAuth 2.0 / SAML SSO / OpenID Connect, JWT session control, Multi-Factor Authentication, and organizational Directory Sync) to complete the full enterprise lifecycle.
+
 ---
 
 <a name="english"></a>
-## English Overview
+# English Documentation
 
-### 1. Who (Target Audience & Personas)
-- **Engineers, QA Testers & Designers**: Fast, friction-free self-service checkout for test devices (iOS/Android), external monitors, docking stations, VR headsets, and display adapters without paperwork or delays.
+## 1. Target Audience (Who)
+- **Engineering, QA & Product Teams**: Fast self-service checkout for test devices (iOS/Android), external 4K displays, Thunderbolt docking stations, VR headsets, and display adapters without paperwork or bottlenecks.
 - **IT Support & Asset Operations**: Complete real-time transparency over internal hardware custody, automated overdue asset recovery, and a secure tamper-evident operations audit trail.
 
 ---
 
-### 2. Problem Statement
-In fast-paced engineering offices, shared IT peripherals and testing hardware frequently cause operational bottlenecks:
+## 2. Problem Statement (Problem)
+In fast-paced engineering offices, shared IT peripherals and testing hardware frequently cause operational friction:
 1. **Asset Drift & Ghost Checkouts**: Peripherals are borrowed casually and not returned, leaving team members hunting through chat channels to identify who holds critical hardware.
-2. **Untracked Peer Handovers**: Colleagues pass devices directly to one another, breaking the chain of custody and corrupting IT asset records.
+2. **Untracked Peer Handovers**: Colleagues pass devices directly to one another without IT inspection, breaking the chain of custody and corrupting IT asset records.
 3. **Manual Follow-up Overhead**: IT staff spend excessive hours manually tracking down overdue devices and inspecting returned hardware condition.
 
 ---
 
-### 3. Solution & Value Proposition
+## 3. Solution & Value Proposition (Solution)
 **EquipLend** transforms workplace hardware lending into a frictionless self-service experience:
 - **Zero-Training UX**: Designed like an intuitive digital catalog. Real-time availability badges (`Available` with emerald vector check, `In Use` with high-contrast red indicator).
 - **Mandatory Return to IT Only**: Assets must be checked back into the central IT hub to inspect physical condition and safely reset custody.
@@ -45,7 +49,7 @@ In fast-paced engineering offices, shared IT peripherals and testing hardware fr
 
 ---
 
-### 4. Key Highlights & Features
+## 4. Key Highlights & Features (Features)
 - **Modern Hardware Catalog**: Instant category filtering (Laptops, Mobile Test Devices, Monitors & Docks, Adapters & Cables, XR/VR R&D, Tablets) with real-time text search.
 - **Screen-Centered Modern Date Picker**: Custom-engineered modal calendar featuring quick-duration presets (1 Day, 3 Days, 1 Week, 2 Weeks), month navigation, and affirmative confirmation.
 - **Autonomous Background Overdue Service**: C# .NET 10 `BackgroundService` monitors overdue items every morning at 09:00 AM and dispatches webhook notifications (Slack/Teams).
@@ -54,20 +58,20 @@ In fast-paced engineering offices, shared IT peripherals and testing hardware fr
 
 ---
 
-### 5. Visual Demonstration
+## 5. Visual Demonstration
 
-#### Equipment Catalog & Modern Kiosk Interface
+### Equipment Catalog & Modern Kiosk Interface
 ![Equipment Catalog](docs/hero-preview.png)
 
-#### Screen-Centered Modern Date Picker Modal
+### Screen-Centered Modern Date Picker Modal
 ![Date Picker Modal](docs/datepicker-preview.png)
 
-#### IT Administrator Console & Operations Log
+### IT Administrator Console & Operations Log
 ![IT Admin Console](docs/admin-preview.png)
 
 ---
 
-### 6. System Architecture & Engineering Design
+## 6. System Architecture & Technical Stack
 
 ```mermaid
 flowchart LR
@@ -100,7 +104,7 @@ flowchart LR
     EF --> DB
 ```
 
-#### Technical Stack & Architectural Rationale
+### Architectural Rationale
 | Layer | Technology | Architectural Rationale |
 |---|---|---|
 | **Frontend** | React 19 + TypeScript | High-performance component rendering with strict type safety. |
@@ -112,15 +116,19 @@ flowchart LR
 
 ---
 
-### 7. Deployment & Local Verification
+## 7. Production Roadmap (Full Enterprise Implementation)
+In this demonstration prototype, a persona switcher is utilized to illustrate user roles and workflows. The planned production release incorporates:
+- **Enterprise Authentication (SSO / IAM)**: Integration with Microsoft Entra ID (Azure AD), Okta, Google Workspace, and GitHub SSO via OAuth 2.0 / OpenID Connect.
+- **Secure Token Lifecycle**: HTTP-only secure cookie sessions, JWT access & refresh token rotation, and strict CSRF protection.
+- **Hardware Barcode / QR Scanner Integration**: Mobile camera and hardware USB barcode reader support for instant physical check-in/check-out.
+- **Persistent Cloud Database**: Migration to Azure SQL / PostgreSQL with automated backups, point-in-time recovery, and multi-region read replicas.
 
-#### Live Production Deployments
-- **Web Application**: [https://equiplend.vercel.app/](https://equiplend.vercel.app/)
-- **Source Repository**: [https://github.com/ZillerDX/equiplend](https://github.com/ZillerDX/equiplend)
+---
 
-#### Local Development Setup
+## 8. Local Setup & Quickstart
+
 ```powershell
-# 1. Clone the repository
+# 1. Clone repository
 git clone https://github.com/ZillerDX/equiplend.git
 cd equiplend
 
@@ -142,22 +150,27 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 ---
 
 <a name="ภาษาไทย"></a>
-## รายละเอียดภาษาไทย (Thai Documentation)
+# เอกสารภาษาไทย (Thai Documentation)
 
-### 1. กลุ่มผู้ใช้งานเป้าหมาย (Who)
+> [!NOTE]
+> **หมายเหตุสำหรับโครงงานต้นแบบ (Showcase Disclaimer)**: โปรเจกต์นี้จัดทำขึ้นในรูปแบบ Interactive Functional Demo เพื่อนำเสนอแนวคิดการออกแบบ Zero-Training UX และสถาปัตยกรรมระบบ โดยในระบบโปรดักชันจริงจะมีการเชื่อมต่อระบบความปลอดภัยแบบครบวงจร (Enterprise Authentication: OAuth 2.0 / SSO / SAML, ระบบล็อกอินพนักงาน, และการเชื่อมต่อฐานข้อมูลองค์กร)
+
+---
+
+## 1. กลุ่มผู้ใช้งานเป้าหมาย (Who)
 - **ทีมวิศวกรรม ซอฟต์แวร์ และ QA เทสเตอร์**: เบิก-ยืมเครื่องเทสต์ (iPhone/Android), จอเสริม 4K, ด็อกกิ้ง หรือสายแปลงได้ด้วยตนเองในเวลาไม่กี่วินาที
 - **ฝ่าย IT Operations & Support**: ตรวจสอบการถือครองอุปกรณ์ส่วนกลางในออฟฟิศได้แบบ Real-Time ตรวจสภาพเครื่องเมื่อส่งคืน และมีระบบตรวจจับของค้างส่งคืนอัตโนมัติ
 
 ---
 
-### 2. ปัญหาที่พบในสำนักงานจริง (Problem Statement)
+## 2. ปัญหาที่พบในสำนักงานจริง (Problem Statement)
 1. **อุปกรณ์สูญหาย / หาตัวคนยืมไม่เจอ**: พนักงานหยิบสายแปลงหรือเครื่องเทสต์ไปใช้งานแล้วลืมคืน เมื่อคนอื่นต้องการใช้ต้องเดินถามทั่วออฟฟิศ
 2. **การส่งต่อกันเองโดยไม่ผ่านระบบ (Chain of Custody Failure)**: ส่งต่อให้เพื่อนร่วมงานยืมต่อทันที ทำให้ข้อมูลในระบบคลาดเคลื่อนและไม่สามารถระบุผู้รับผิดชอบได้
 3. **ภาระงานติดตามของฝ่าย IT**: ต้องคอยทวงถามของค้างส่งคืนทีละคนโดยไม่มีระบบแจ้งเตือนอัตโนมัติ
 
 ---
 
-### 3. แนวทางแก้ไขและคุณค่าของระบบ (Solution)
+## 3. แนวทางแก้ไขและคุณค่าของระบบ (Solution)
 **EquipLend** เปลี่ยนขั้นตอนการเบิกอุปกรณ์ให้สะดวก รวดเร็ว และเป็นระบบ:
 - **Zero-Training UX**: หน้าตาใช้งานง่ายเหมือนแคตตาล็อกร้านค้าออนไลน์ แสดงสถานะชัดเจน (🟢 พร้อมยืม / 🔴 มีผู้ใช้งานอยู่)
 - **นโยบายส่งคืนผ่านฝ่าย IT เท่านั้น (Return to IT Only)**: ผู้ยืมต้องนำของมาคืนที่จุดรวมอุปกรณ์ไอทีส่วนกลาง เพื่อตรวจสภาพและรีเซ็ตประวัติอย่างถูกต้อง
@@ -167,7 +180,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
 
-### 4. ฟีเจอร์หลัก (Key Features)
+## 4. ฟีเจอร์หลัก (Key Features)
 - **แคตตาล็อกอุปกรณ์แยกหมวดหมู่ชัดเจน**: ค้นหาด่วนตามชื่อ สเปก หรือรหัสทรัพย์สิน (Asset Tag)
 - **Date Picker ปฏิทินดีไซน์ทันสมัย**: แสดงผลแบบ Modal ป๊อปอัปกึ่งกลางหน้าจอ พร้อมปุ่มระยะเวลายืมด่วน (1 วัน, 3 วันทำการ, 1 สัปดาห์, 2 สัปดาห์)
 - **C# .NET 10 BackgroundService Overdue Monitor**: รันตรวจสอบอุปกรณ์เกินกำหนดทุกเช้าเวลา 09:00 น. พร้อมส่ง Webhook แจ้งเตือนไปยัง Slack / Microsoft Teams
@@ -176,7 +189,16 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
 
-### 5. ผังการทำงานของระบบ (Architecture Diagram)
+## 5. แผนการพัฒนาสู่ระบบจริง (Production Roadmap)
+ในเวอร์ชัน Showcase นี้ ใช้ระบบจำลอง Persona Switcher เพื่อให้เห็นขั้นตอนการทำงานจริง โดยในระบบจริงที่จะนำไปติดตั้งในองค์กร จะมีการเพิ่มฟังก์ชันดังต่อไปนี้:
+- **ระบบ Authentication & Identity เต็มรูปแบบ**: รองรับการ Login ด้วย Single Sign-On (SSO) ขององค์กร เช่น Microsoft Entra ID (Azure AD), Google Workspace, หรือ Okta
+- **ระบบจัดการ Session และ Token ความปลอดภัย**: ใช้ HTTP-only Cookies ร่วมกับ JWT และ Refresh Token Rotation
+- **ระบบสแกนบาร์โค้ด / QR Code**: เชื่อมต่อเครื่องสแกนบาร์โค้ดเพื่อยิงเบิก-คืนอุปกรณ์ได้ทันทีที่ตู้คลังไอที
+- **ฐานข้อมูล Production ระดับ Enterprise**: อัปเกรดสู่ PostgreSQL / SQL Server บน Cloud พร้อมระบบ Backup และ Disaster Recovery
+
+---
+
+## 6. สถาปัตยกรรมระบบ (System Architecture)
 
 ```mermaid
 flowchart TD
@@ -195,7 +217,7 @@ flowchart TD
 
 ---
 
-### 6. การติดตั้งและทดสอบในเครื่อง (Local Setup)
+## 7. วิธีติดตั้งและรันในเครื่อง (Local Setup)
 
 ```powershell
 # 1. Clone โค้ดจาก GitHub
@@ -211,17 +233,10 @@ cd ../../frontend
 npm install
 npm run dev
 ```
-เปิดใช้งานผ่านเว็บเบราว์เซอร์ที่ [http://localhost:3000](http://localhost:3000)
+เปิดใช้งานผ่านเบราว์เซอร์ที่ [http://localhost:3000](http://localhost:3000)
 
 ---
 
-### 7. ข้อมูลการเผยแพร่ระบบ (Production Links)
-- **ระบบบน Production (Vercel)**: [https://equiplend.vercel.app/](https://equiplend.vercel.app/)
-- **GitHub Repository**: [https://github.com/ZillerDX/equiplend](https://github.com/ZillerDX/equiplend)
-- **Backend API Hosting**: [Railway Cloud Platform](https://railway.com/)
-
----
-
-<div align="center">
-  <sub>Crafted with engineering discipline by Tanathon Chanapha (ZillerDX) • Powered by .NET 10 & React 19</sub>
-</div>
+## License
+This project is open-sourced under the [MIT License](LICENSE).  
+Copyright (c) 2026 Tanathon Chanapha (ZillerDX).
