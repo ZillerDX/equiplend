@@ -1,0 +1,32 @@
+# Build and output artifacts
+**/bin/
+**/obj/
+*.db
+*.db-shm
+*.db-wal
+*.local.db
+
+# Node dependencies and build
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# Logs and environment secrets
+*.log
+.env
+.env.local
+.env.*.local
+appsettings.Local.json
+
+# IDE and Editor files
+.vs/
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+.DS_Store
+Thumbs.db
