@@ -183,7 +183,7 @@ export const DeviceUpsertModal: React.FC<DeviceUpsertModalProps> = ({
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-slate-100 bg-slate-50/70 shrink-0">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-slate-100 bg-slate-50/70 rounded-t-2xl shrink-0">
           <div className="flex items-center gap-2">
             <span className="px-2 py-0.5 rounded text-xs font-semibold bg-indigo-50 text-indigo-700 border border-indigo-200">
               {lang === 'TH' ? 'เฉพาะแอดมิน IT' : 'IT Admin Only'}

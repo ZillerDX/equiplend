@@ -55,7 +55,7 @@ export const WatchModal: React.FC<WatchModalProps> = ({ device, currentUser, lan
         className="relative w-full max-w-md bg-white rounded-2xl shadow-2xl border border-slate-200/80 overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="flex items-center justify-between px-6 py-4 border-b border-slate-100 bg-slate-50/50">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-slate-100 bg-slate-50/50 rounded-t-2xl">
           <div className="flex items-center gap-2">
             <Bell className="size-4 text-amber-500 shrink-0" />
             <h3 className="text-base font-semibold text-slate-800">
